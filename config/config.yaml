@@ -1,0 +1,7 @@
+model:
+  transfer_model_url: https://tfhub.dev/google/tf2-preview/gnews-swivel-20dim/1
+  data_directory: data
+  training_data_file: web_dataset.csv
+  y_column_name: TARGET
+  pipeline_save_directory: models
+  model_directory: models
