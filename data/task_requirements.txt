@@ -1,0 +1,25 @@
+A group of famous digital nomads needs your help!
+This group likes to travel, explore and share their experiences.
+Over the years they have collected websites of their favorite places to stay and dine.
+However, the list has become quite large, and now they have difficulty finding anything.
+So, as a side-hustle, they decided to develop a system where they can easily search for places.
+One piece of a system they need your help with is to predict a type of place - whether it is a place to stay or a place to eat in.
+
+
+They are not that knowledgeable about Data Science, but they thought that information contained on those websites might be
+helpful for your task.
+So, they scraped text from all the websites and even did some manual work - assigning a type of an establishment to a small number of them.
+They are sending you this smaller dataset and hope you can perform some data magic and develop a system that would help them do
+the automatic assignment for the remaining websites on their list.
+
+
+An additional requirement they have is to wrap this system of yours in an API so they can use it in their search system.
+It is up to you to decide on the technical details, actual input format and the output.
+
+They would like to test your API once developed, by sending you an additional CSV file similar to the one they are sending you now, with manual assignments in it as well.
+Could you prepare a small testing tool that would take this CSV, do the predictions using your API and
+report some model performance metrics?
+
+
+Please follow the guidelines and best practices for Data Science projects and software development when developing your solution and report back all the code you develop,
+briefly documenting your creative process: thoughts, decisions, ...
