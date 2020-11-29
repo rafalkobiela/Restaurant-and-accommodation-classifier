@@ -1,34 +1,32 @@
-from flask import request, jsonify
-from pandas.errors import ParserError
+from flask import request
+from flask_restplus import Resource, fields
 
-from app import app
+from app.swagger_docs import create_score_input_docs, create_score_response_docs
 from model.model import Model
+from app import tag
 
 model = Model()
 model.load_model()
 
 
-@app.errorhandler(Exception)
-def handle_error(e):
-    code = 500
-    if isinstance(e, ParserError):
-        code = 400
-    return jsonify(error=str(e)), code
-
-
-@app.route("/predict", methods=["GET"])
-def predict():
-    if request.method == "GET":
+@tag.route("/predict")
+class Predict(Resource):
+    @tag.doc(params={'web_text': 'Web text',
+                     'title': 'Title',
+                     'description': 'Description',
+                     'keywords': 'Keywords'})
+    def get(self):
         web_text = request.args.get("web_text", "")
         title = request.args.get("title", "")
         description = request.args.get("description", "")
         keywords = request.args.get("keywords", "")
-
         return model.predict(web_text, title, description, keywords)
 
 
-@app.route("/score", methods=["POST"])
-def score():
-    if request.method == "POST":
+@tag.route("/score")
+class Score(Resource):
+    @tag.expect(create_score_input_docs())
+    @tag.marshal_with(create_score_response_docs(), as_list=False)
+    def post(self):
         file = request.files["file"]
-        return jsonify(model.score(file).__dict__)
+        return model.score(file).__dict__

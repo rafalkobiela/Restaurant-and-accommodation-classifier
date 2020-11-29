@@ -4,4 +4,4 @@ model:
   training_data_file: web_dataset.csv
   y_column_name: TARGET
   pipeline_save_directory: models
-  model_directory: models
+  model_directory: saved_models

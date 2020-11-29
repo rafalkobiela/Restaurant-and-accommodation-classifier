@@ -4,7 +4,7 @@ from sklearn.metrics import precision_score, recall_score, accuracy_score
 from config.config import Config
 from data_processing.input_data_processor import InputDataProcessor
 from data_processing.label_processor import get_label_decoder
-from dtos.scoring_result import ScoringResult
+from dtos.scoring_response import ScoringResult
 from model.pipeline.pipeline import create_pipeline
 from model.pipeline.pipeline_serializer import save_pipeline, load_pipeline
 

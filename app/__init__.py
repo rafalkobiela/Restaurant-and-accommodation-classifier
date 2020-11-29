@@ -1,17 +1,12 @@
 from flask import Flask
-from flask_swagger_ui import get_swaggerui_blueprint
+from flask_restplus import Api
 
 app = Flask(__name__)
+api = Api(app,
+          version='1.0',
+          title='Restaurant and accommodation classifier',
+          description='Toptal recruitment task',
+          contact_email="kobiela.rafal@gmail.com")
 
-from app import controllers
-
-SWAGGER_URL = '/swagger'
-API_URL = 'http://petstore.swagger.io/v2/swagger.json'
-SWAGGERUI_BLUEPRINT = get_swaggerui_blueprint(
-    SWAGGER_URL,
-    API_URL,
-    config={
-        'app_name': "Seans-Python-Flask-REST-Boilerplate"
-    }
-)
-app.register_blueprint(SWAGGERUI_BLUEPRINT, url_prefix=SWAGGER_URL)
+tag = api.namespace('classifier',
+                    description='Restaurant and accommodation classifier endpoints')
