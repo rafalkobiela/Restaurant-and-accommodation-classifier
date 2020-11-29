@@ -6,7 +6,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    command: python3
+    command: python3 run.py
     volumes:
       - .:/usr/src/app
     ports:
