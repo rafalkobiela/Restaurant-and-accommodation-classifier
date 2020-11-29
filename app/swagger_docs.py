@@ -14,7 +14,7 @@ def create_score_input_docs():
 
 
 def create_score_response_docs():
-    return tag.model('Todo', {
+    return tag.model('Scoring result', {
         'accuracy': fields.Float(required=True, description='Accuracy of the uploaded data'),
         'precision': fields.Float(required=True, description='Precision of the uploaded data'),
         'recall': fields.Float(required=True, description='Recall of the uploaded data')
