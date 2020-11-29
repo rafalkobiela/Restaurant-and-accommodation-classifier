@@ -24,4 +24,3 @@ class InputDataProcessor:
 
     def _drop_y_null_rows(self, df: pd.DataFrame):
         return df[~df[self.config.y_column_name].isna()]
-

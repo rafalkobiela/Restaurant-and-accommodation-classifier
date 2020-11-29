@@ -5,6 +5,7 @@ import tensorflow_hub as hub
 from sklearn.pipeline import Pipeline
 
 from config.config import Config
+from model.pipeline.training_metrics import f1_metric, precision_metric, recall_metric
 
 
 def save_pipeline(pipeline: Pipeline):
@@ -32,7 +33,10 @@ def load_pipeline() -> Pipeline:
 
     for i in range(4):
         model_path = os.path.join(config.model_directory, f"tf_{i}.h5")
-        model = tf.keras.models.load_model(model_path, custom_objects={'KerasLayer': hub.KerasLayer})
+        model = tf.keras.models.load_model(model_path, custom_objects={'KerasLayer': hub.KerasLayer,
+                                                                       "f1_metric": f1_metric,
+                                                                       "precision_metric": precision_metric,
+                                                                       "recall_metric": recall_metric})
         pipeline.steps[1][1].transformers_[i][1].model = model
 
     return pipeline

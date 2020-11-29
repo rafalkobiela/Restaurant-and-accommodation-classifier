@@ -32,8 +32,8 @@ class Model:
 
         predictions = self.model.predict(X)
 
-        precision = precision_score(y, predictions, pos_label=1)
-        recall = recall_score(y, predictions, pos_label=1)
+        precision = precision_score(y, predictions, pos_label=0)
+        recall = recall_score(y, predictions, pos_label=0)
         accuracy = accuracy_score(y, predictions)
 
         return ScoringResult(precision, recall, accuracy)
