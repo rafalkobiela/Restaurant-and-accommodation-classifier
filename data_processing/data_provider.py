@@ -21,10 +21,11 @@ class DataProvider:
 
     def check_data_correctness(self):
         column_names = self.data.columns
-        if column_names[0] != "WEB_TEXT" or \
-                column_names[1] != "TITLE" or \
-                column_names[2] != "DESCRIPTION" or \
-                column_names[3] != "KEYWORDS" or \
-                column_names[4] != "TARGET":
+        if (
+            column_names[0] != "WEB_TEXT"
+            or column_names[1] != "TITLE"
+            or column_names[2] != "DESCRIPTION"
+            or column_names[3] != "KEYWORDS"
+            or column_names[4] != "TARGET"
+        ):
             raise ParserError("File should have 5 columns: [WEB_TEXT,TITLE,DESCRIPTION,KEYWORDS,TARGET]")
-

@@ -34,10 +34,15 @@ def load_pipeline() -> Pipeline:
 
     for i in range(number_of_neural_networks):
         model_path = os.path.join(config.model_directory, f"tf_{i}.h5")
-        model = tf.keras.models.load_model(model_path, custom_objects={'KerasLayer': hub.KerasLayer,
-                                                                       "f1_metric": f1_metric,
-                                                                       "precision_metric": precision_metric,
-                                                                       "recall_metric": recall_metric})
+        model = tf.keras.models.load_model(
+            model_path,
+            custom_objects={
+                "KerasLayer": hub.KerasLayer,
+                "f1_metric": f1_metric,
+                "precision_metric": precision_metric,
+                "recall_metric": recall_metric,
+            },
+        )
         pipeline.steps[1][1].transformers_[i][1].model = model
 
     return pipeline

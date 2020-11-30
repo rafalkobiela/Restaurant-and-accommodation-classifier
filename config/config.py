@@ -4,7 +4,6 @@ import yaml
 
 
 class Config:
-
     def __init__(self):
         config = self._read_file()
 
@@ -17,6 +16,6 @@ class Config:
 
     @staticmethod
     def _read_file() -> Dict:
-        with open("config/config.yaml", 'r') as stream:
+        with open("config/config.yaml", "r") as stream:
             config = yaml.load(stream, Loader=yaml.BaseLoader)
         return config

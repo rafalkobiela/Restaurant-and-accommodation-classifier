@@ -19,4 +19,3 @@ def f1_metric(y_true, y_pred):
     precision = precision_metric(y_true, y_pred)
     recall = recall_metric(y_true, y_pred)
     return 2 * ((precision * recall) / (precision + recall + K.epsilon()))
-

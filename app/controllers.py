@@ -11,10 +11,7 @@ model.load_model()
 
 @tag.route("/predict")
 class Predict(Resource):
-    @tag.doc(params={'web_text': 'Web text',
-                     'title': 'Title',
-                     'description': 'Description',
-                     'keywords': 'Keywords'})
+    @tag.doc(params={"web_text": "Web text", "title": "Title", "description": "Description", "keywords": "Keywords"})
     def get(self):
         web_text = request.args.get("web_text", "")
         title = request.args.get("title", "")
